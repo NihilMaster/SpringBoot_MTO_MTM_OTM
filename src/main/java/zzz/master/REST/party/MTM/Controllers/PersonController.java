@@ -8,9 +8,7 @@ import zzz.master.REST.party.MTM.Entities.PartyEntity;
 import zzz.master.REST.party.MTM.Entities.PersonEntity;
 import zzz.master.REST.party.MTM.Repositories.PersonRepository;
 
-
 import java.util.Collection;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/people")
@@ -19,7 +17,7 @@ public class PersonController {
     @Autowired
     private PersonRepository personRepository;
 
-    @RequestMapping
+    @GetMapping
     public ResponseEntity<Collection<PersonEntity>> getAllPeople() {
         return new ResponseEntity<>(personRepository.findAll(), HttpStatus.OK);
     }

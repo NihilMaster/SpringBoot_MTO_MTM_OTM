@@ -1,6 +1,5 @@
 package zzz.master.REST.party.MTM.Entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
