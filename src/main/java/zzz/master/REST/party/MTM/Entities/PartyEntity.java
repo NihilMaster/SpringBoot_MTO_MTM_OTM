@@ -21,7 +21,7 @@ public class PartyEntity {
     private String location;
 
     @Column(name = "party_date")
-    @JsonFormat(pattern = "YYYY-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
     @ManyToMany

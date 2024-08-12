@@ -47,8 +47,12 @@ public class PartyController {
         return new ResponseEntity<PartyEntity>(party, HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<PartyEntity> updateParty(@RequestBody PartyEntity party) {
-        return new ResponseEntity<PartyEntity>(partyRepository.save(party), HttpStatus.OK);
+    @PutMapping("/{id}")
+    public ResponseEntity<PartyEntity> updateParty(@PathVariable int id, @RequestBody PartyEntity party) {
+        PartyEntity optionalParty = partyRepository.findById(id);
+        party.setId(id);
+        return optionalParty==null ?
+                new ResponseEntity<>(HttpStatus.NOT_FOUND) :
+                new ResponseEntity<>(partyRepository.save(party), HttpStatus.OK);
     }
 }

@@ -59,8 +59,11 @@ public class PersonController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PersonEntity> updatePerson(@RequestBody PersonEntity person) {
-
-        return new ResponseEntity<>(personRepository.save(person), HttpStatus.OK);
+    public ResponseEntity<PersonEntity> updatePerson(@PathVariable int id, @RequestBody PersonEntity person) {
+        PersonEntity optionalPerson = personRepository.findById(id);
+        person.setId(id);
+        return optionalPerson==null ?
+                new ResponseEntity<>(HttpStatus.NOT_FOUND) :
+                new ResponseEntity<>(personRepository.save(person), HttpStatus.OK);
     }
 }
