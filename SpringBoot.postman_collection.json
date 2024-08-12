@@ -1,0 +1,531 @@
+{
+	"info": {
+		"_postman_id": "ab856d48-c1a5-473f-b15e-101864174659",
+		"name": "SpringBoot",
+		"description": "Peticiones para el repositorio:\n\n[https://github.com/NihilMaster/SpringBoot_Basics](https://github.com/NihilMaster/SpringBoot_Basics)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22734484"
+	},
+	"item": [
+		{
+			"name": "Party",
+			"item": [
+				{
+					"name": "Parties",
+					"item": [
+						{
+							"name": "GetParties",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/parties",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"parties"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetPartyById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/parties/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"parties",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetPeopleFromPartyById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/parties/3/people",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"parties",
+										"3",
+										"people"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateParty",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"location\" : \"Unknown\",\r\n    \"date\" : \"2024-09-01\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/parties",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"parties"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteParty",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/parties/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"parties",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PutParty",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"location\" : \"unknown\",\r\n    \"date\" : \"2024-10-31\",\r\n    \"people\" : [\r\n        {\r\n            \"id\": 5\r\n        },\r\n        {\r\n            \"id\": 6\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/parties/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"parties",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "People",
+					"item": [
+						{
+							"name": "GetPeople",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/people",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"people"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetPersonById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/people/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"people",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetPartyFromPersonById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/people/5/parties",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"people",
+										"5",
+										"parties"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreatePerson",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"John\",\r\n    \"age\" : 20\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/people",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"people"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeletePerson",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/people/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"people",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PutPerson",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Joe\",\r\n    \"age\" : 23\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/people/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"people",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Skills",
+					"item": [
+						{
+							"name": "GetAllSkills",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/skills",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"skills"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetSkillsById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/skills/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"skills",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetPeopleFromSkillById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/skills/3/person",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"skills",
+										"3",
+										"person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PostSkill",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"level\": \"ADVANCED\",\r\n    \"name\": \"Drink\",\r\n    \"person\" : {\r\n        \"id\":6\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/skills",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"skills"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteSkill",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/skills/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"skills",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PutSkill",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"level\": \"ADVANCED\",\r\n    \"name\": \"Drink\",\r\n    \"person\" : {\r\n        \"id\":7\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/skills/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"skills",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PartiesPeople",
+					"item": [
+						{
+							"name": "GetAllJoins",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/joins",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"joins"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateJoin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/7/join/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"7",
+										"join",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteJoin",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/7/join/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"7",
+										"join",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Relación Fiestas-Personas"
+				}
+			],
+			"description": "Segundo ejercicio del video:  \n[https://youtu.be/mgXmTZZCsbI?list=PLRI0n5fbTtwM2N096ciRF4Jg_8HvhZn9r](https://youtu.be/mgXmTZZCsbI?list=PLRI0n5fbTtwM2N096ciRF4Jg_8HvhZn9r)\n\nRepositorio del ejercicio:  \n[https://github.com/NihilMaster/SpringBoot_MTO_MTM_OTM.git](https://github.com/NihilMaster/SpringBoot_MTO_MTM_OTM.git)"
+		}
+	]
+}
