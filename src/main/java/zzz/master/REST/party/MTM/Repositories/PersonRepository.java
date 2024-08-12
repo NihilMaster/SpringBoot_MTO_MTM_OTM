@@ -10,6 +10,7 @@ import java.util.Collection;
 public interface PersonRepository  extends CrudRepository<PersonEntity, Long> {
 
     Collection<PersonEntity> findAll();
-    PersonEntity findByName(String name);
+
+    PersonEntity findById(long id);
 
 }

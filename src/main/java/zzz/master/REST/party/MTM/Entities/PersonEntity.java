@@ -21,10 +21,10 @@ public class PersonEntity {
     @Column(name = "person_age")
     private int age;
 
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private Set<SkillEntity> skills = new HashSet<>();
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JsonBackReference
     @JoinTable(name = "parties_people",
             joinColumns = @JoinColumn(name = "person_id", referencedColumnName = "person_id"),

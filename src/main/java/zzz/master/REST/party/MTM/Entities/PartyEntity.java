@@ -24,7 +24,7 @@ public class PartyEntity {
     @JsonFormat(pattern = "YYYY-MM-dd")
     private Date date;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "parties_people",
             joinColumns = @JoinColumn(name = "party_id", referencedColumnName = "party_id"),
             inverseJoinColumns = @JoinColumn(name = "person_id", referencedColumnName = "person_id"))

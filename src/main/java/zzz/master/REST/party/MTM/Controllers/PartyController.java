@@ -23,13 +23,16 @@ public class PartyController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PartyEntity> getPartyById(long id) {
-        return new ResponseEntity<PartyEntity>(partyRepository.findById(id).orElseThrow(), HttpStatus.OK);
+    public ResponseEntity<PartyEntity> getPartyById(@PathVariable long id) {
+        return new ResponseEntity<PartyEntity>(partyRepository.findById(id), HttpStatus.OK);
     }
 
     @GetMapping("/{id}/people")
-    public ResponseEntity<Collection<PersonEntity>> getPartyPersons(long id) {
-        return new ResponseEntity<Collection<PersonEntity>>(partyRepository.findById(id).orElseThrow().getPeople(), HttpStatus.OK);
+    public ResponseEntity<Collection<PersonEntity>> getPartyPersons(@PathVariable long id) {
+        PartyEntity party = partyRepository.findById(id);
+        return (party==null ?
+                new ResponseEntity<>(HttpStatus.NOT_FOUND) :
+                new ResponseEntity<>(party.getPeople(), HttpStatus.OK));
     }
 
     @PostMapping
@@ -37,9 +40,9 @@ public class PartyController {
         return new ResponseEntity<PartyEntity>(partyRepository.save(party), HttpStatus.CREATED);
     }
 
-    @DeleteMapping
-    public ResponseEntity<PartyEntity> deleteParty(long id) {
-        PartyEntity party = partyRepository.findById(id).orElseThrow();
+    @DeleteMapping("/{id}")
+    public ResponseEntity<PartyEntity> deleteParty(@PathVariable long id) {
+        PartyEntity party = partyRepository.findById(id);
         partyRepository.delete(party);
         return new ResponseEntity<PartyEntity>(party, HttpStatus.OK);
     }

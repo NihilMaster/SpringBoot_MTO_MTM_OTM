@@ -10,5 +10,6 @@ import java.util.Collection;
 public interface PartyRepository extends CrudRepository<PartyEntity, Long> {
 
     Collection<PartyEntity> findAll();
-    PartyEntity findByName(String name);
+
+    PartyEntity findById(long id);
 }

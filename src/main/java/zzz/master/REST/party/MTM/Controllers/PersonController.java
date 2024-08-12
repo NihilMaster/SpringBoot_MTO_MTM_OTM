@@ -8,7 +8,9 @@ import zzz.master.REST.party.MTM.Entities.PartyEntity;
 import zzz.master.REST.party.MTM.Entities.PersonEntity;
 import zzz.master.REST.party.MTM.Repositories.PersonRepository;
 
+
 import java.util.Collection;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/people")
@@ -23,23 +25,21 @@ public class PersonController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PersonEntity> getPersonById(long id) {
-        PersonEntity person = personRepository.findById(id).orElseThrow();
+    public ResponseEntity<PersonEntity> getPersonById(@PathVariable long id) {
+        PersonEntity person = personRepository.findById(id);
         if (person != null) {
-            return new ResponseEntity<>(personRepository.findById(id).orElseThrow(), HttpStatus.OK);
+            return new ResponseEntity<>(personRepository.findById(id), HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @GetMapping("/{id}/parties")
-    public ResponseEntity<Collection<PartyEntity>> getPersonParties(long id) {
-        PersonEntity person = personRepository.findById(id).orElseThrow();
-        if (person != null) {
-            return new ResponseEntity<>(person.getParties(), HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<Collection<PartyEntity>> getPersonParties(@PathVariable long id) {
+        PersonEntity person = personRepository.findById(id);
+        return person == null ?
+                new ResponseEntity<>(HttpStatus.NOT_FOUND) :
+                new ResponseEntity<>(person.getParties(), HttpStatus.OK);
     }
 
     @PostMapping
@@ -48,18 +48,19 @@ public class PersonController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<PersonEntity> deletePerson(long id) {
-        PersonEntity person = personRepository.findById(id).orElseThrow();
+    public ResponseEntity<Void> deletePerson(@PathVariable long id) {
+        PersonEntity person = personRepository.findById(id);
         if (person != null) {
             personRepository.delete(person);
-            return new ResponseEntity<>(person, HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<PersonEntity> updatePerson(@RequestBody PersonEntity person) {
+
         return new ResponseEntity<>(personRepository.save(person), HttpStatus.OK);
     }
 }
